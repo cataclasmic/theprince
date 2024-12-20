@@ -3,22 +3,29 @@
 
 class Attribute
 {
- public:
-  string name;
 };
 
 class Conservative : Attribute
 {
  public:
-  string name = "conservative";
+  Conservative(){}
+  float stiffUpperLip = 0.5;
+}; 
+
+class Radical : Attribute
+{
+ public:
+  Radical(){}
+  float crazy = 0.5;
 }; 
 
 class Pop
 {
  public:
-  int size;
-  int id;
-  std::list<Attribute> attrs;
-  Pop() {
-  }
+  Pop(int size, std::list<Attribute> attrs) : _size(size), _attrs(attrs)
+  {}
+ private:
+  int _size;
+  int _id;
+  std::list<Attribute> _attrs;
 };
