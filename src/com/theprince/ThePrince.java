@@ -18,7 +18,7 @@ public class ThePrince {
     attrs.add(new Conservative(0.5));
     attrs.add(new Radical(0.1));
     Population kingdom = new Population(100, attrs);  
-    Individual you = new Individual("Fred", kingdom);
+    Individual you = new Individual("Fred", new ArrayList<Att>(), kingdom);
     
     Scanner input = new Scanner(System.in);
     
