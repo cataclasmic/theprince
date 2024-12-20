@@ -28,9 +28,16 @@ public class ThePrince {
     mainMenu.add('s', "Sleep", null);
     while (true)
     {
-    	
+    	System.out.println(when.toString());
     	System.out.print(mainMenu.getDisplay() + "\n>");
     	char in = input.nextLine().charAt(0);
+    	
+    	switch (in)
+    	{
+    	case 's':
+    		when.plusHours(8);
+    		break;
+    	}
     	
     }
   }
