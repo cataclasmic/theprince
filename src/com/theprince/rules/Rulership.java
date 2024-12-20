@@ -36,7 +36,7 @@ public class Rulership {
 				}
 				// New ruler will be more charismatic than the old.
 				double newCharisma = Math.min(ruler.charisma + 10, Individual.CHARISMA_RANGE);
-				newRulers.add(new Individual(newStrategery, newCharisma, pop, 0.0, pop.radical, pop.conservative));
+				newRulers.add(new Individual(newStrategery, newCharisma, pop, 0.0, pop.radical, pop.conservative, 50));
 			} else {
 				// Ruler has three maximization strategies:
 				// 1. power (popularity and regulation)
