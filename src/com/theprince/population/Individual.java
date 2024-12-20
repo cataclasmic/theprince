@@ -1,15 +1,15 @@
 package com.theprince.population;
 
-import java.util.ArrayList;
-
-import com.theprince.population.attributes.Att;
-
 public class Individual extends Entity {
+	public static int CHARISMA_RANGE = 100;
 	public Population population;
-	public String name;
-	public Individual(String name, ArrayList<Att> attrs, Population population) {
-		super(attrs);
-		this.name = name;
+	public enum Strategy { POWER, POPULARITY, WEALTH };
+	public Strategy strategery;
+	public double charisma; // Threshold for getting deposed.
+	public Individual(Strategy strategery, double charisma, Population population, double purse, double radical, double conservative) {
+		super(purse, radical, conservative);
+		this.strategery = strategery;
+		this.charisma = charisma;
 		this.population = population;
 	}
 }

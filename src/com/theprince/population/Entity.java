@@ -1,19 +1,12 @@
 package com.theprince.population;
 
-import java.util.ArrayList;
-
-import com.theprince.population.attributes.Att;
-
 public class Entity {
-	ArrayList<Att> attrs = new ArrayList<Att>();
 	public double purse;
-	public Entity(ArrayList<Att> attrs) {
-		this.attrs = attrs;
-		this.purse = 0;
-	}
-	
-	public Entity(ArrayList<Att> attrs, double purse) {
-		this(attrs);
+	public double radical;
+	public double conservative;
+	public Entity(double purse, double radical, double conservative) {
 		this.purse = purse;
+		this.radical = radical;
+		this.conservative = conservative;
 	}
 }
