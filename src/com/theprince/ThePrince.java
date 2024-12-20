@@ -45,7 +45,7 @@ public class ThePrince {
 			case 'e':
 		    		LocalDateTime newWhen = when.plus(Period.ofDays(1)).withHour(8);
 		    		Duration d = Duration.between(when, newWhen);
-		    		you.fatigue += d.toHours() - 10; // 10 = "normal" hours of rest
+		    		you.fatigue -= d.toHours() - 10; // 10 = "normal" hours of rest
 		    		when = newWhen;
 		    		break;
 			case 'q':
