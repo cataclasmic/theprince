@@ -1,1 +1,1 @@
-How do you save the world?  By intervention or by liberty?
+How do you save the world?  Through legislation or liberty?
