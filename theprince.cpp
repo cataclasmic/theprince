@@ -2,6 +2,6 @@
 
 int main()
 {
- Attribute conservative = Conservative::Conservative();
- Attribute radical = Radical::Radical();
+ Attribute conservative = Conservative(0.5);
+ Attribute radical = Radical(0.5);
 }; 

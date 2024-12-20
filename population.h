@@ -5,18 +5,20 @@ class Attribute
 {
 };
 
-class Conservative : Attribute
+class Conservative : public Attribute
 {
  public:
-  Conservative(){}
-  float stiffUpperLip = 0.5;
+  Conservative(float stiffUpperLip) : _stiffUpperLip(stiffUpperLip)
+  {}
+  float _stiffUpperLip;
 }; 
 
-class Radical : Attribute
+class Radical : public Attribute
 {
  public:
-  Radical(){}
-  float crazy = 0.5;
+  Radical(float crazy) : _crazy(crazy)
+  {}
+  float _crazy;
 }; 
 
 class Pop
