@@ -32,6 +32,7 @@ public class ThePrince {
 		while (true)
 		{
 			System.out.println(when.toString());
+			System.out.println("riches: " + you.purse);
 			System.out.print(mainMenu.getDisplay() + "\n>");
 			char in = input.nextLine().charAt(0);
 			
