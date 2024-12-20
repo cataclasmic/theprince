@@ -9,9 +9,7 @@ import java.util.Scanner;
 
 import com.theprince.population.Individual;
 import com.theprince.population.Population;
-import com.theprince.population.attributes.Att;
-import com.theprince.population.attributes.Conservative;
-import com.theprince.population.attributes.Radical;
+
 import com.theprince.rules.Economics;
 
 public class ThePrince {
@@ -19,13 +17,10 @@ public class ThePrince {
 	public static void main(String args[])
 	{
 		System.out.println("The Prince");
-		ArrayList<Att> attrs = new ArrayList<Att>();
-		attrs.add(new Conservative(0.5));
-		attrs.add(new Radical(0.1));
 		ArrayList<Population> pops = new ArrayList<Population>();
-		Population kingdom = new Population(100, attrs);
+		Population kingdom = new Population(100, 1000, .1, .5, 50);
 		pops.add(kingdom);
-		Individual you = new Individual("Fred", new ArrayList<Att>(), kingdom);
+		Individual you = new Individual(Individual.Strategy.BALANCED, 50, kingdom, 100, 0, 0, 50);
 		
 		Scanner input = new Scanner(System.in);
 		
@@ -43,7 +38,10 @@ public class ThePrince {
 			switch (in)
 			{
 			case 'e':
-		    		when = when.plus(Period.ofDays(1)).withHour(8);
+		    		LocalDateTime newWhen = when.plus(Period.ofDays(1)).withHour(8);
+		    		Duration d = Duration.between(when, newWhen);
+		    		you.fatigue += d.toHours() - 10; // 10 = "normal" hours of rest
+		    		when = newWhen;
 		    		break;
 		    }
 		

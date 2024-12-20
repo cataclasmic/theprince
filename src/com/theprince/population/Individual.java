@@ -6,8 +6,8 @@ public class Individual extends Entity {
 	public enum Strategy { POWER, POPULARITY, WEALTH, BALANCED };
 	public Strategy strategery;
 	public double charisma; // Threshold for getting deposed.
-	public Individual(Strategy strategery, double charisma, Population population, double purse, double radical, double conservative) {
-		super(purse, radical, conservative);
+	public Individual(Strategy strategery, double charisma, Population population, double purse, double radical, double conservative, double fatigue) {
+		super(purse, radical, conservative, fatigue);
 		this.strategery = strategery;
 		this.charisma = charisma;
 		this.population = population;

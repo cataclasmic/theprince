@@ -7,8 +7,8 @@ public class Population extends Entity {
 	public double purloinedTechnology;
 	public double resources;
 	public double regulation;
-	public Population(int size, double purse, double radical, double conservative) {
-		super(purse, radical, conservative);
+	public Population(int size, double purse, double radical, double conservative, double fatigue) {
+		super(purse, radical, conservative, fatigue);
 		this.size = size;
 	}
 }
