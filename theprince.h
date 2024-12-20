@@ -1,23 +1,24 @@
 #include <list>
-
-class Peasant
-{
- public:
-  void deal(Peasant p);
-  int money;
-};
+#include <string>
 
 class Attribute
 {
+ public:
+  string name;
 };
 
-class Event
+class Conservative : Attribute
 {
-};
+ public:
+  string name = "conservative";
+}; 
 
 class Pop
 {
  public:
   int size;
   int id;
+  std::list<Attribute> attrs;
+  Pop() {
+  }
 };
