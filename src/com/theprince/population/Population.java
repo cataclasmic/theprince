@@ -2,13 +2,12 @@ package com.theprince.population;
 
 import java.util.ArrayList;
 
-import com.theprince.population.attributes.Attribute;
+import com.theprince.population.attributes.Att;
 
 public class Population extends Entity {
 	public int size;
-	public ArrayList<Attribute> attrs = new ArrayList<Attribute>();
-	public Population(int size, ArrayList<Attribute> attrs) {
+	public Population(int size, ArrayList<Att> attrs) {
+		super(attrs);
 		this.size = size;
-		this.attrs = attrs;
 	}
 }
