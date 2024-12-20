@@ -8,7 +8,7 @@ public class Population extends Entity {
 	public int size;
 	public double innovation;
 	public double technology;
-	public double newTechnology;
+	public double purloinedTechnology;
 	public double resources;
 	public double regulation;
 	public Population(int size, ArrayList<Att> attrs) {
