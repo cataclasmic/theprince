@@ -29,10 +29,14 @@ public class ThePrince {
 		
 		Menu mainMenu = new Menu();
 		mainMenu.add('e', "End Day", null);
-		while (true)
+		boolean gameover = false;
+		while (!gameover)
 		{
 			System.out.println(when.toString());
-			System.out.println("riches: " + you.purse);
+			System.out.println("*** POPULATION ***");
+			you.population.display();
+			System.out.println("*** YOU ***");
+			you.display();
 			System.out.print(mainMenu.getDisplay() + "\n>");
 			char in = input.nextLine().charAt(0);
 			
@@ -44,6 +48,9 @@ public class ThePrince {
 		    		you.fatigue += d.toHours() - 10; // 10 = "normal" hours of rest
 		    		when = newWhen;
 		    		break;
+			case 'q':
+				gameover = true;
+				break;
 		    }
 		
 			long newDaysPassed = ChronoUnit.DAYS.between(START_DATETIME, when);

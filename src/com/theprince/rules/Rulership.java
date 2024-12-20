@@ -40,7 +40,7 @@ public class Rulership {
 			} else {
 				// Ruler has three maximization strategies:
 				// 1. power (popularity and regulation)
-				// 2. popularity (correspondence between ruler and population)
+				// 2. popularity (correspondence between ruler and population, and increase charisma)
 				// 3. wealth (regulation)
 				switch(ruler.strategery) {
 				case POWER:
@@ -53,7 +53,10 @@ public class Rulership {
 				case POPULARITY:
 					ruler.radical = pop.radical;
 					ruler.conservative = pop.conservative;
-					ruler.charisma += 1;
+					if (ruler.purse > 10) {
+						ruler.charisma += 1;
+						ruler.purse -= 10;
+					}
 					break;
 				case WEALTH:
 					pop.regulation += 10;

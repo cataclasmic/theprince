@@ -11,4 +11,10 @@ public class Entity {
 		this.conservative = conservative;
 		this.fatigue = fatigue;
 	}
+	public void display() {
+		System.out.println("purse: " + this.purse);
+		System.out.println("radical: " + this.radical);
+		System.out.println("conservative: " + this.conservative);
+		System.out.println("fatigue: " + this.fatigue);
+	}
 }

@@ -12,4 +12,10 @@ public class Individual extends Entity {
 		this.charisma = charisma;
 		this.population = population;
 	}
+	
+	public void display() {
+		super.display();
+		System.out.println("strategery: " + this.strategery);
+		System.out.println("charisma: " + this.charisma);
+	}
 }
