@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.theprince.population.King;
+import com.theprince.population.Individual;
 import com.theprince.population.Population;
 import com.theprince.population.attributes.Att;
 import com.theprince.population.attributes.Conservative;
@@ -18,7 +18,7 @@ public class ThePrince {
     attrs.add(new Conservative(0.5));
     attrs.add(new Radical(0.1));
     Population kingdom = new Population(100, attrs);  
-    King king = new King("Fred", 0.2, kingdom);
+    Individual you = new Individual("Fred", kingdom);
     
     Scanner input = new Scanner(System.in);
     
