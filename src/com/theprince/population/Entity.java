@@ -1,5 +1,5 @@
 package com.theprince.population;
 
-public class Attribute {
+public class Entity {
 
 }
