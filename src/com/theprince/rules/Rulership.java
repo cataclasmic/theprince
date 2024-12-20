@@ -21,9 +21,22 @@ public class Rulership {
 				pop.technology = 0;
 				pop.regulation = 0;
 				deposedRulers.add(ruler);
-				// New rulers start out poor and with the same characteristics as their population.
-				Individual.Strategy newStrategery = Individual.Strategy.values()[new Random().nextInt(Individual.Strategy.values().length)];
-				newRulers.add(new Individual(newStrategery, new Random().nextInt(Individual.CHARISMA_RANGE), pop, 0.0, pop.radical, pop.conservative));
+				// New rulers start out poor and with the same characteristics as their population.  New ruler also will have a different strategy.
+				Individual.Strategy newStrategery = null;
+				switch(ruler.strategery) {
+				case POWER:
+					newStrategery = Individual.Strategy.POPULARITY;
+					break;
+				case POPULARITY:
+					newStrategery = Individual.Strategy.WEALTH;
+					break;
+				case WEALTH:
+					newStrategery = Individual.Strategy.POWER;
+					break;
+				}
+				// New ruler will be more charismatic than the old.
+				double newCharisma = Math.min(ruler.charisma + 10, Individual.CHARISMA_RANGE);
+				newRulers.add(new Individual(newStrategery, newCharisma, pop, 0.0, pop.radical, pop.conservative));
 			} else {
 				// Ruler has three maximization strategies:
 				// 1. power (popularity and regulation)
@@ -31,16 +44,20 @@ public class Rulership {
 				// 3. wealth (regulation)
 				switch(ruler.strategery) {
 				case POWER:
-					pop.regulation += 10;
 					ruler.radical = pop.radical;
 					ruler.conservative = pop.conservative;
+					pop.regulation += 10;
+					ruler.conservative = 0.9 * ruler.conservative + 0.1 * pop.regulation/(pop.size+pop.regulation);
+					ruler.charisma = Math.max(1, ruler.charisma - 2);
 					break;
 				case POPULARITY:
 					ruler.radical = pop.radical;
 					ruler.conservative = pop.conservative;
+					ruler.charisma += 1;
 					break;
 				case WEALTH:
 					pop.regulation += 10;
+					ruler.conservative = 0.9 * ruler.conservative + 0.1 * pop.regulation/(pop.size+pop.regulation);
 					break;
 				}
 				

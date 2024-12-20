@@ -30,5 +30,13 @@ public class Economics {
 			pop.size += pop.purse * pop.technology;
 			pop.purse = Math.max(0, pop.purse - pop.size);
 		}
+		
+		// The population values change based on situation.
+		// If there is a lot of money or regulation, then the population becomes more radical, i.e. more willing to change.
+		// If there is not much money, then the population will become more conservative, less willing to change.
+		for (Population pop : pops) {
+			pop.radical += (pop.purse + pop.regulation)/pop.size;
+			pop.conservative += Math.abs(pop.purse-pop.size);
+		}
 	}
 }
