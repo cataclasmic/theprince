@@ -23,11 +23,11 @@ public class Economics {
 		// Resources are necessary for creating wealth, but are also depleted by the population.
 		for (Population pop : pops) {
 			pop.innovation += Math.max(0.0, pop.size - pop.regulation);
-			double obstruction = pop.regulation * (pop.size-1); 
+			double obstruction = pop.regulation/1000 * pop.size; 
 			pop.technology += Math.max(0.0, pop.innovation + pop.purloinedTechnology - obstruction);
-			pop.purse += pop.technology * pop.resources;
-			pop.resources -= pop.size / pop.technology;
-			pop.size += pop.purse * pop.technology;
+			pop.purse += Math.max(pop.technology * pop.resources/pop.size, 0);
+			pop.resources = Math.max(pop.resources - pop.size / pop.technology + (pop.purse * pop.technology)/pop.size, 0);
+			pop.size = (int) Math.max(pop.size + pop.resources/pop.size - 1, 0);
 			pop.purse = Math.max(0, pop.purse - pop.size);
 		}
 		
@@ -38,5 +38,9 @@ public class Economics {
 			pop.radical += (pop.purse + pop.regulation)/pop.size;
 			pop.conservative += Math.abs(pop.purse-pop.size);
 		}
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 }
